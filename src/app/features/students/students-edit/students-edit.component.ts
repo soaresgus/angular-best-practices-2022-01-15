@@ -16,7 +16,6 @@ import { StudentsService } from '../students.service';
 export class StudentsEditComponent implements OnInit {
 
   student!: Student;
-  courses: Course[] = [];
   studentForm!: FormGroup;
 
   constructor(
@@ -24,16 +23,13 @@ export class StudentsEditComponent implements OnInit {
     private toastr: ToastrService,
     private formBuilder: FormBuilder,
     private activatedRoute: ActivatedRoute,
-    private coursesService: CoursesService,
     private studentsService: StudentsService
   ) { }
 
   ngOnInit(): void {
     const { student } = this.activatedRoute.snapshot.data;
     this.student = student;
-
     this.buildForm();
-    this.loadCourses();
   }
 
   goBack() {
@@ -60,12 +56,6 @@ export class StudentsEditComponent implements OnInit {
       email: [this.student.email, Validators.required],
       birthday: [this.student.birthday, Validators.required],
       courseId: [this.student.courseId, Validators.required]
-    });
-  }
-
-  private loadCourses() {
-    this.coursesService.findAll().subscribe(response => {
-      this.courses = response;
     });
   }
 

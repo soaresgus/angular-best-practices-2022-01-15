@@ -13,13 +13,7 @@
     </div>
 
     <div class="form-row">
-        <div class="form-group col-sm-4">
-            <label>Course</label>
-            <select class="form-control" formControlName="courseId">
-                <option value="" selected>Select</option>
-                <option [ngValue]="course.id" *ngFor="let course of courses">{{course.name}}</option>
-            </select>
-        </div>
+        <app-select-course class="form-group col-sm-4" formControlName="courseId"></app-select-course>
 
         <div class="form-group col-sm-8">
             <label>Name</label>

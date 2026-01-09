@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { differenceInYears, parseISO } from 'date-fns';
 import { Student } from '../student';
 import { StudentsService } from '../students.service';
 
@@ -20,16 +19,6 @@ export class StudentsListComponent implements OnInit {
 
   refresh() {
     this.loadStudents();
-  }
-
-  studentShortName(student: Student) {
-    const names = student.name.split(' ');
-    return names.length > 1 ? `${names.shift()} ${names.pop()}` : student.name;
-  }
-
-  studentAge(student: Student, suffix?: string) {
-    const age = differenceInYears(Date.now(), parseISO(student.birthday));
-    return suffix ? `${age} ${suffix}` : age;
   }
 
   private loadStudents() {
