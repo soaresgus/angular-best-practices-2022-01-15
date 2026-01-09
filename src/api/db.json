@@ -18,11 +18,11 @@
   ],
   "students": [
     {
-      "id": 1,
       "name": "Pedro Henrique Lacombe",
       "email": "pedro@gmail.com",
       "birthday": "1992-08-28",
-      "courseId": 1
+      "courseId": 2,
+      "id": 1
     },
     {
       "id": 2,
